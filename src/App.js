@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import Logo from './logo.svg';
 import './App.css';
 
-import { Button, Container, Jumbotron } from 'reactstrap'
+import { Button, Container, Jumbotron } from 'reactstrap';
+
+import Form from './components/Form';
+import List from './components/List';
 
 // React Hooks Notes:
 // ==================
@@ -33,25 +36,28 @@ function App() {
   const [expenses, setExpenses] = useState(ALL_EXPENSES)
 
   return (
-    <Container className="text-center">
+    <Container>
       <Jumbotron fluid>
-        <h3 className="display-6">
+        <h3 className='display-6' className='text-center'>
           Expense Tracker React App
-          <img src={Logo} style={{ width: 50, height: 50 }} alt="react-logo" />
+          <img src={Logo} style={{ width: 50, height: 50 }} alt='react-logo' />
         </h3>
-        <div>
+        <div className='text-center'>
           <p>
             Total Expense:{' '}
-            <span className="text-success">
+            <span className='text-success'>
               ${' '}
               {expenses.reduce((accumulator, currentValue) => {
                 return (accumulator += parseInt(currentValue.amount))
               }, 0)}
             </span>
           </p>
-          </div>
-        </Jumbotron>
-      </Container>
+        </div>
+        <Form />
+        
+        <List expenses={expenses} />
+      </Jumbotron>
+    </Container>
     )
   }
 
