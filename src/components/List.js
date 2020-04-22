@@ -6,7 +6,7 @@ const List = ({ expenses }) => (
   <div>
     <ListGroup>
       {expenses.map(item => (
-        <ListGroupItem key={item.id}>
+        <ListGroupItem key={item.name}>
           {item.name} - $ {item.amount}
         </ListGroupItem>
       ))}
