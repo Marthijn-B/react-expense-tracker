@@ -45,13 +45,11 @@ function App() {
   const [removed, setRemoved] = useState('');
 
   const handleName = event => {
-    console.log('Name ', event.target.value)
     setName(event.target.value);
     setRemoved('');
   }
 
   const handleAmount = event => {
-    console.log('Amount ', event.target.value)
     setAmount(event.target.value)
     setRemoved('');
   }
@@ -71,6 +69,7 @@ function App() {
       setName('')
       setAmount('')
     } else {
+      // TODO: Display this error on the form
       console.log('Invalid expense name or the amount')
     }
   }
@@ -91,7 +90,6 @@ function App() {
     event.preventDefault();
     const pos = event.target.value;
     setRemoved(expenses[pos].name);
-    console.log("Remove Item: ", expenses[pos].name);
     // remove item at position 'pos' from state
     expenses.splice(pos, 1);
     // update localStorage
