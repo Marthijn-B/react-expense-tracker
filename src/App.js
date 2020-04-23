@@ -42,16 +42,18 @@ function App() {
   const [expenses, setExpenses] = useState(ALL_EXPENSES);
   const [name, setName] = useState('');
   const [amount, setAmount] = useState('');
-  const [removal, setRemoval] = useState('');
+  const [removed, setRemoved] = useState('');
 
   const handleName = event => {
     console.log('Name ', event.target.value)
-    setName(event.target.value)
+    setName(event.target.value);
+    setRemoved('');
   }
 
   const handleAmount = event => {
     console.log('Amount ', event.target.value)
     setAmount(event.target.value)
+    setRemoved('');
   }
 
   const handleSubmitForm = event => {
@@ -88,13 +90,12 @@ function App() {
   const handleSingleDelete = event => {
     event.preventDefault();
     const pos = event.target.value;
-    console.log("Remove Item: ", pos);
+    setRemoved(expenses[pos].name);
+    console.log("Remove Item: ", expenses[pos].name);
     // remove item at position 'pos' from state
-    // expenses.splice(pos, 1);
-    expenses.splice(pos,1);
+    expenses.splice(pos, 1);
     // update localStorage
     localStorage.setItem('expenses', JSON.stringify(expenses));
-
   }
 
   return (
@@ -129,6 +130,11 @@ function App() {
           expenses={expenses}
           handleSingleDelete={handleSingleDelete}
         />
+        { removed &&
+          <center><p style={{color: 'red'}}><i>
+            {removed} expense has been removed
+          </i></p></center>
+        }
       </Jumbotron>
     </Container>
     )
