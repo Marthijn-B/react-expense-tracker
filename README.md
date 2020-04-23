@@ -11,7 +11,7 @@ This is a small project to teach myself about React Hooks.
 * Included the use of localStorage
 
 ---
-Default create-react-app README.md
+*Default create-react-app README.md*
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
