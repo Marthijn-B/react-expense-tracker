@@ -2,6 +2,14 @@
 
 This is a small project to teach myself about React Hooks.
 
+Single page application to save your current expenses and display the Total.
+
+You can:
+* Enter a new item (Both fields are required)
+* View your list of expenses
+* Delete a single expense from the List
+* Clear the whole list and start over
+
 ### Hooks used:
 * State Hook { useState }
 * Effect Hook { useEffect }
@@ -11,7 +19,8 @@ This is a small project to teach myself about React Hooks.
 * Included the use of localStorage
 
 ---
-*Default create-react-app README.md*
+*(Default create-react-app README.md below)*
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
