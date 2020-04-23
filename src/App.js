@@ -42,6 +42,7 @@ function App() {
   const [expenses, setExpenses] = useState(ALL_EXPENSES);
   const [name, setName] = useState('');
   const [amount, setAmount] = useState('');
+  const [removal, setRemoval] = useState('');
 
   const handleName = event => {
     console.log('Name ', event.target.value)
@@ -83,6 +84,19 @@ function App() {
     setExpenses([])
   }
 
+  // Remove a single expense
+  const handleSingleDelete = event => {
+    event.preventDefault();
+    const pos = event.target.value;
+    console.log("Remove Item: ", pos);
+    // remove item at position 'pos' from state
+    // expenses.splice(pos, 1);
+    expenses.splice(pos,1);
+    // update localStorage
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+
+  }
+
   return (
     <Container>
       <Jumbotron fluid>
@@ -111,7 +125,10 @@ function App() {
           handleClearExpenses={handleClearExpenses}
         />
 
-        <List expenses={expenses} />
+        <List
+          expenses={expenses}
+          handleSingleDelete={handleSingleDelete}
+        />
       </Jumbotron>
     </Container>
     )

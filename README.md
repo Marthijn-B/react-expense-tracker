@@ -7,7 +7,7 @@ Single page application to save your current expenses and display the Total.
 You can:
 * Enter a new item (Both fields are required)
 * View your list of expenses
-* Delete a single expense from the List
+* Delete a single expense from the list
 * Clear the whole list and start over
 
 ### Hooks used:
