@@ -47,12 +47,11 @@ function App() {
 
   const handleName = event => {
     setName(event.target.value);
-    setRemoved('');
+    clearMessages();
   }
 
   const handleAmount = event => {
-    setAmount(event.target.value)
-    setRemoved('');
+    setAmount(event.target.value);
   }
 
   const handleSubmitForm = event => {
@@ -88,7 +87,8 @@ function App() {
 
   // Clear the expense list
   const handleClearExpenses = () => {
-    setExpenses([])
+    clearMessages();
+    setExpenses([]);
   }
 
   // Remove a single expense
@@ -100,6 +100,13 @@ function App() {
     expenses.splice(pos, 1);
     // update localStorage
     localStorage.setItem('expenses', JSON.stringify(expenses));
+    setError('');
+  }
+
+  // Clear display messages
+  const clearMessages = () => {
+    setRemoved('');
+    setError('');
   }
 
   return (
