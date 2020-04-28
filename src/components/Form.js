@@ -10,7 +10,7 @@ import {
 } from 'reactstrap'
 
 // Form = ({ all the vars/functions from app.js })
-const Form = ({ name, amount, handleName, handleAmount, handleSubmitForm, handleClearExpenses }) => (
+const Form = ({ name, amount, error, handleName, handleAmount, handleSubmitForm, handleClearExpenses }) => (
   <BTForm style={{ margin: 10 }} onSubmit={handleSubmitForm}>
     <FormGroup className="row">
       <Label for="exampleEmail" sm={2}>
@@ -34,6 +34,8 @@ const Form = ({ name, amount, handleName, handleAmount, handleSubmitForm, handle
       <Col sm={4}>
         <Input
           type="number"
+          min="0.01"
+          step="0.01"
           name="amount"
           id="expenseAmount"
           placeholder="0.00"
@@ -42,12 +44,27 @@ const Form = ({ name, amount, handleName, handleAmount, handleSubmitForm, handle
         />
       </Col>
     </FormGroup>
-    <Button type="submit" color="primary">
-      Add
-    </Button>
-    <Button type="submit" color="danger" onClick={handleClearExpenses} style={{float: 'right'}}>
-      Clear list
-    </Button>
+    <div>
+      <Button
+        id="submit"
+        type="submit"
+        color="primary"
+      >
+        Add
+      </Button>
+
+      <Button
+        id="clear"
+        type="submit"
+        color="danger"
+        onClick={handleClearExpenses}
+      >
+        Clear list
+      </Button>
+      { error &&
+          <font id='errorText'>{error}</font>
+      }
+    </div>
   </BTForm>
 )
 

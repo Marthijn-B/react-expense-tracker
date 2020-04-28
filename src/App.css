@@ -1,3 +1,5 @@
+/* Default CSS from create-react-app */
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Additional CSS from development */
+
+#errorText {
+  color: red;
+  padding-left: 15px;
+  /* float: left; */
+}
+#submit {
+  /* float: left; */
+}
+#clear {
+  float: right;
+}
+
+#list {
+  /* float: left; */
 }

@@ -5,7 +5,7 @@ import { ListGroup, ListGroupItem } from 'reactstrap'
 
 const List = ({ expenses, handleSingleDelete }) => (
   <div>
-    <ListGroup>
+    <ListGroup id="list">
       {expenses.map((item,id) => (
         <ListGroupItem key={id}>
           {item.name} - $ {item.amount}

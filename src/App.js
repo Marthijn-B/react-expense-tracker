@@ -43,6 +43,7 @@ function App() {
   const [name, setName] = useState('');
   const [amount, setAmount] = useState('');
   const [removed, setRemoved] = useState('');
+  const [error, setError] = useState('');
 
   const handleName = event => {
     setName(event.target.value);
@@ -56,11 +57,14 @@ function App() {
 
   const handleSubmitForm = event => {
     event.preventDefault() // this line prevents the form from refreshing
+    setAmount(Number(amount).toFixed(2));
 
     //check whether the name is not empty and the amount is not negative
     if (name !== '' && amount > 0) {
+      console.log(Number(amount).toFixed(2));
       // single expense object
       const expense = { name, amount }
+      console.log(expense);
       // do not override previous values in the array
       // use spread operator to access previous values
       setExpenses([...expenses, expense])
@@ -68,9 +72,11 @@ function App() {
       // clean input fields
       setName('')
       setAmount('')
+      setError('')
     } else {
       // TODO: Display this error on the form
       console.log('Invalid expense name or the amount')
+      setError('Invalid expense name or the amount');
     }
   }
 
@@ -118,6 +124,7 @@ function App() {
         <Form
           name={name}
           amount={amount}
+          error={error}
           handleName={handleName}
           handleAmount={handleAmount}
           handleSubmitForm={handleSubmitForm}
