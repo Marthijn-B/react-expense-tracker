@@ -89,7 +89,7 @@ function App() {
   const handleSingleDelete = event => {
     event.preventDefault();
     const pos = event.target.value;
-    setRemoved(expenses[pos].name);
+    setRemoved([expenses[pos].name, expenses[pos].amount]);
     // remove item at position 'pos' from state
     expenses.splice(pos, 1);
     // update localStorage
@@ -130,7 +130,7 @@ function App() {
         />
         { removed &&
           <center><p style={{color: 'red'}}><i>
-            {removed} expense has been removed
+            {removed[0]} expense of ${removed[1]} has been removed.
           </i></p></center>
         }
       </Jumbotron>
